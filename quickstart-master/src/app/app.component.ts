@@ -1,51 +1,62 @@
-import { Component } from '@angular/core';
-import {Account} from "./account.model";
+import {Component, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import {Account} from "./account/account.model";
+import {AccountsList} from "./account/accounts_list.component";
+import {BrowserModule} from "@angular/platform-browser";
+import {beforeEach, describe} from "selenium-webdriver/testing";
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+
+
+/*describe('AccountsList',() => {
+  let component: AccountsList;
+  let fixture: ComponentFixture<AccountsList>;
+
+  beforeEach(async(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [AppComponent, AccountsList],
+      imports: [ BrowserModule, Account]
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent((AccountsList));
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy()
+  });
+});*/
 
 @Component({
-  selector: 'my-app',
-  // template: `<h1>Hello {{title}}</h1>`,
-  templateUrl: 'app/app.component.html',
-  // styles: ['.blue-bg{background-color: cyan;}']
-  styleUrls: ['app/app.component.css']
+selector: 'my-app',
+templateUrl: 'app/app.component.html',
+styleUrls: ['app/app.component.css'],
+// styles: ['.blue-bg{background-color: cyan;}']
+})
+
+@NgModule({
+  imports: [BrowserModule, Account],
+  declarations: [AppComponent, AccountsList],
+  providers: [],
+  bootstrap: [AppComponent, AccountsList],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 
 export class AppComponent {
-  private _selected: Array<Boolean> = [false, false];
-  get account(): Array<Account> {
-    return this._account;
-  }
 
-  set account(value: Array<Account>) {
-    this._account = value;
-  }
+  private _nextID = 3;
 
-  private _account:Array<Account> = [
-    {
-      id:1,
-      title:"Bank Xzy",
-      description:"This is my main bank account.",
-      balance:501.2
-    },
-      new Account(2, "Bank Asd", "My secret account.", 1024.10)
-  ]
-
-  private _nextID = 3
-
-  private createAcc(titleEl:any, descEl:any, balEl:any){
-    this._account.push(new Account(this._nextID, titleEl.value, descEl.value, balEl.value));
-    this._nextID++;
-    this._selected.push(false)
+  private static createAcc(titleEl:any, descEl:any, balEl:any){
+    // this._account.push(new Account(this._nextID, titleEl.value, descEl.value, balEl.value));
+    // this._nextID++;
+    // this._selected.push(false)
     titleEl.value = "";
     descEl.value = "";
     balEl.value = 0
-}
-
-  private removeAcc(index:number){
-    this._account.splice(index, 1)
-    this._selected.splice(index,1)
   }
 
-  private select(index:number){
-    this._selected[index] = !this._selected[index]
-  }
+
 }

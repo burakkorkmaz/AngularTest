@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="alert alert-info" *ngIf="_account.length == 0"><strong>You do not have any accounts yet.</strong> Please
+    add a new account!
+  </div>
+</div>
+
+<div class="row">
+  <div class="acc col-md-12" *ngFor="let acc of _account,let i=index"
+       [ngClass]="{selected:_selected[i], otherCSSClass: otherProperty}">
+    <h3>{{acc.title}} ({{acc.id}})</h3>
+    <p>{{acc.description}}</p>
+    <p>Balance: <strong class="lead">{{acc.balance}}</strong></p>
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-primary" (click)="select(i)">{{_selected[i] ? 'Deselect' : 'Select'}}</button>
+        <button class="btn btn-danger" (click)="removeAcc(i)">Delete</button>
+
+      </div>
+    </div>
+  </div>
+</div>
