@@ -1,13 +1,9 @@
-.info{
-  background-color: darksalmon;
-  padding: 10px 24px;
-  /*margin: 10px;*/
-}
+/*.info{*/
+  /*background-color: darksalmon;*/
+  /*padding: 10px 24px;*/
+  /*!*margin: 10px;*!*/
+/*}*/
 
-
-.selected{
-  background-color: greenyellow;
-}
 
 form{
   margin: 24px 8px;

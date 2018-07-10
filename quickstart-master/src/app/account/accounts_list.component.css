@@ -10,3 +10,7 @@
 .acc:hover {
   background-color: greenyellow;
 }
+
+.selected{
+  background-color: greenyellow;
+}
