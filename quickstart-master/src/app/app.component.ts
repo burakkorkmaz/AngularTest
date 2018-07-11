@@ -1,5 +1,6 @@
-import {Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {Account} from "./account/account.model";
+import {AccountForm} from "./account/account_form.component";
 
 /*describe('AccountsList',() => {
   let component: AccountsList;
@@ -51,9 +52,19 @@ export class AppComponent {
 
   private _nextID = 3;
 
+  private createAccError:string = "";
+  private accLimit:number = 3;
   private createAcc(newAccount:Account){
-    newAccount.id = this._nextID++;
-    this._account.push(newAccount);
+    this.createAccError = "";
+
+    if (this._account.length < this.accLimit) {
+      newAccount.id = this._nextID++;
+      this._account.push(newAccount);
+
+      // this.form.resetForm()
+    } else {
+        this.createAccError = "Only " + this.accLimit + " account(s) allowed.";
+    }
   }
 
   private removeAcc(index:number){
@@ -61,4 +72,5 @@ export class AppComponent {
     // this._selected.splice(index,1);
   }
 
+  @ViewChild(AccountForm) form:AccountForm;
 }

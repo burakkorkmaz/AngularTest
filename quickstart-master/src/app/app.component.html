@@ -5,7 +5,7 @@
   <!--my custom tag -->
   <accounts_list [accounts] = "_account" (delete)="removeAcc($event)" ></accounts_list>
 
-  <account-form (created)="createAcc($event)"></account-form>
+  <account-form (created)="createAcc($event)" [error]="createAccError" ></account-form>
 
   <!--<div>-->
   <!--<input type="text" #s (keyup)="0"  (submit)="fill()">-->

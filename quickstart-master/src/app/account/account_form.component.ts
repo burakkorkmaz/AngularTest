@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Output} from "@angular/core";
+import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from "@angular/core";
 import {Account} from "./account.model";
+import {error} from "selenium-webdriver";
 
 @Component({
   selector: 'account-form',
@@ -18,4 +19,13 @@ export class AccountForm{
     descEl.value = "";
     balEl.value = 0
   }
+
+  @Input() error:string;
+
+  @ViewChild('form') form:ElementRef;
+
+  public resetForm(){
+    this.form.nativeElement.reset();
 }
+}
+
