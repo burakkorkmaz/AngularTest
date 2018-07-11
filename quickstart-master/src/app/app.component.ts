@@ -49,17 +49,11 @@ export class AppComponent {
     }
   ];
 
-
   private _nextID = 3;
 
-
-  private createAcc(titleEl:any, descEl:any, balEl:any){
-    // this._account.push(new Account(this._nextID, titleEl.value, descEl.value, balEl.value));
-    // this._nextID++;
-    // this._selected.push(false)
-    titleEl.value = "";
-    descEl.value = "";
-    balEl.value = 0
+  private createAcc(newAccount:Account){
+    newAccount.id = this._nextID++;
+    this._account.push(newAccount);
   }
 
   private removeAcc(index:number){
