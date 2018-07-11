@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input, Output, EventEmitter, OnInit} from "@angular/core";
 import {Account} from "./account.model"
 
 @Component({
@@ -7,7 +7,10 @@ import {Account} from "./account.model"
   styleUrls: ["app/account/accounts_list.component.css"]
 })
 
-export class AccountsList{
+export class AccountsList implements OnInit{
+  ngOnInit(): void {
+    console.log("success");
+  }
   // get account(): Array<Account> {
   //   return this._account;
   // }
@@ -17,28 +20,16 @@ export class AccountsList{
 
   private _selected: Array<Boolean> = [false, false];
 
-  private _account:Array<Account> = [
-    {
-      id:1,
-      title:"X Bank",
-      description:"This is my main bank account.",
-      balance:532
-    },
-    {
-      id:2,
-      title:"Y Bank",
-      description:"My secret account.",
-      balance:1024
-    }
-  ];
 
-  private removeAcc(index:number){
-    this._account.splice(index, 1);
-    this._selected.splice(index,1);
-  }
+  @Input ('accounts') _account:Array<Account>;
+  @Output ('delete') delete = new EventEmitter<number>();
 
   private selected(index:number){
     this._selected[index] = !this._selected[index]
+  }
+
+  private _remove(index:number){
+    this.delete.emit(index);
   }
 
 }
