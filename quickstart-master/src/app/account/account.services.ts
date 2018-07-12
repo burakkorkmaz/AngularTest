@@ -1,8 +1,11 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Optional} from '@angular/core';
 import {Account} from "./account.model";
+import {LoggerService} from "../util/logger.service";
 
 @Injectable()
 export class AccountService {
+  constructor(@Optional() private _logger:LoggerService){}
+
   private _account: Array<Account> = [
     {
     id: 1,
@@ -25,10 +28,18 @@ export class AccountService {
 
   public create(newAccount: Account) {
     newAccount.id = this._nextID++;
+    if (this._logger) {
+      this._logger.log('Account created: ' +  newAccount.title);
+    }
     this._account.push(newAccount);
   }
 
   public remove(index:number){
+    if (this._logger) {
+      this._logger.log('Account deleted: ' + this._account[index].title);
+    }
     this._account.splice(index);
   }
 }
+
+export const ACCOUNT_SERVICE_PROVIDERS:Array<any> = [AccountService, LoggerService];

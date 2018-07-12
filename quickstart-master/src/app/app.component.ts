@@ -1,12 +1,15 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {Account} from "./account/account.model";
 import {AccountForm} from "./account/account_form.component";
-import {AccountService} from "./account/account.services";
+import {ACCOUNT_SERVICE_PROVIDERS, AccountService} from "./account/account.services";
+import {LoggerService} from "./util/logger.service";
 
 @Component({
-selector: 'my-app',
-templateUrl: 'app/app.component.html',
-styleUrls: ['app/app.component.css'],
+  selector: 'my-app',
+  templateUrl: 'app/app.component.html',
+  styleUrls: ['app/app.component.css'],
+  // providers: [AccountService, LoggerService]
+  providers: [ACCOUNT_SERVICE_PROVIDERS]
 // styles: ['.blue-bg{background-color: cyan;}']
 })
 
