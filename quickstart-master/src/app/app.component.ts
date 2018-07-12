@@ -1,8 +1,7 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Account} from "./account/account.model";
 import {AccountForm} from "./account/account_form.component";
 import {ACCOUNT_SERVICE_PROVIDERS, AccountService} from "./account/account.services";
-import {LoggerService} from "./util/logger.service";
 
 @Component({
   selector: 'my-app',
@@ -15,25 +14,28 @@ import {LoggerService} from "./util/logger.service";
 
 export class AppComponent {
 
-  private _account:Array<Account>;
+  private _account:Array<Account> = [];
 
   private _accountService:AccountService;
 
   constructor(accountService:AccountService){
     this._accountService = accountService;
-
-    this._account = this._accountService.getAll();
+    var promise = this._accountService.getAll();
+    promise.then(accounts => this._account = accounts);
   }
 
   private createAccError:string = "";
 
   private createAcc(newAccount:Account){
-    this._accountService.create(newAccount);
+    this._accountService.create(newAccount).then(account => {
+    console.log(account);
+    this.createAccError = "";
     this.form.resetForm()
+    }).catch(err => this.createAccError = err);
   }
 
   private removeAcc(index:number){
-    this._accountService.remove(index);
+    this._accountService.remove(index).then(account => console.log(account));
   }
 
   @ViewChild(AccountForm) form:AccountForm;
