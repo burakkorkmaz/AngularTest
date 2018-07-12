@@ -21,11 +21,14 @@ export class AccountService {
     return this._account;
   }
 
-
   private _nextID = 3;
 
   public create(newAccount: Account) {
     newAccount.id = this._nextID++;
     this._account.push(newAccount);
+  }
+
+  public remove(index:number){
+    this._account.splice(index);
   }
 }
