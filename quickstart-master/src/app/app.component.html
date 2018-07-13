@@ -1,10 +1,5 @@
 <div class="container">
-  <h1> Personal Finance </h1>
-  <h2> Your Accounts </h2>
+  <h1>Personal Finance</h1>
 
-  <!-- my custom tag -->
-  <accounts_list [accounts] = "_account" (delete)="removeAcc($event)" ></accounts_list>
-  <!-- another custom tag -->
-  <account-form (created)="createAcc($event)" [error]="createAccError" ></account-form>
-
+  <router-outlet></router-outlet>
 </div>
