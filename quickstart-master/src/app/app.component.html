@@ -2,44 +2,9 @@
   <h1> Personal Finance </h1>
   <h2> Your Accounts </h2>
 
-  <!--my custom tag -->
+  <!-- my custom tag -->
   <accounts_list [accounts] = "_account" (delete)="removeAcc($event)" ></accounts_list>
-
+  <!-- another custom tag -->
   <account-form (created)="createAcc($event)" [error]="createAccError" ></account-form>
 
-  <!--<div>-->
-  <!--<input type="text" #s (keyup)="0"  (submit)="fill()">-->
-  <!--<p [hidden] = 'isEmpty' style="color: darkgray">Value is {{s.value}} </p>-->
-  <!--</div>-->
-
-  <!--<div>-->
-  <!--<h3>Change Email</h3>-->
-  <!--<input type="text" title="title" #newMail>-->
-  <!--<button (click)="changeEmail(newMail.value)">Change</button>-->
-  <!--</div>-->
-  <!--<div>-->
-  <!--<h3>Change Email (by pressing Enter)</h3>-->
-  <!--<input type="text" (keyup)="keyPress($event)" #newMail >-->
-  <!--<button (click)="changeEmail(newMail.value)">Change</button>-->
-  <!--</div>-->
-
-  <!--<div>-->
-  <!--<h3>Change Email (by pressing Enter alternatively) </h3>-->
-  <!--<input type="text" #newMail (keyup.enter)="changeEmail(newMail.value)">-->
-  <!--<button (click)="changeEmail(newMail.value)">Change</button>-->
-  <!--</div>-->
-
-  <!--<input [disabled]="disableInput" type="text" placeholder="Enter here">-->
-  <!--<input [disabled]="isDisable()" type="text" placeholder="Enter here">-->
-  <!--<input [disabled]="disableInput" type="text" [value]="currUser.username" placeholder="Enter here">-->
-
-  <!--<input [class.blue-bg]="isBlueBg" type="text" placeholder="Enter Here">-->
-  <!--<input [style.background-color]="bgColor" type="text" placeholder="Enter Here..">-->
-
-  <!--<p> Your Profile</p>-->
-  <!--<p> Name -> {{currUser.username}}</p>-->
-  <!--<p> Email -> {{currUser.email}}</p>-->
-  <!--<p> Good Bye, {{getUsername()}}!</p>-->
 </div>
-
-<!--<input value="{{getUsername()}}"  type="text">-->

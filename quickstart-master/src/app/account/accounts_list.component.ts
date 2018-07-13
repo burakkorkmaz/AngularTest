@@ -30,6 +30,7 @@ export class AccountsList implements OnInit{
 
   private _remove(index:number){
     this.delete.emit(index);
+    this._selected.splice(index);
   }
 
 }

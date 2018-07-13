@@ -1,8 +1,11 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Optional} from '@angular/core';
 import {Account} from "./account.model";
+import {LoggerService} from "../util/logger.service";
 
 @Injectable()
 export class AccountService {
+  constructor(@Optional() private _logger:LoggerService){}
+
   private _account: Array<Account> = [
     {
     id: 1,
@@ -17,18 +20,43 @@ export class AccountService {
       balance: 130
     }];
 
-  public getAll(): Array<Account> {
-    return this._account;
+  public getAll():Promise<Array<Account>> {
+    return Promise.resolve(this._account);
   }
 
   private _nextID = 3;
-
+  private _accountLimit = 3;
   public create(newAccount: Account) {
-    newAccount.id = this._nextID++;
-    this._account.push(newAccount);
+    return new Promise((resolve,reject) => {
+      if(this._account.length >= this._accountLimit){
+        reject("Maximum accounts limit reached.");
+        return;
+      }
+
+      newAccount.id = this._nextID++;
+      if (this._logger) {
+        this._logger.log('Account created: ' +  newAccount.title);
+      }
+      this._account.push(newAccount);
+
+    })
+
   }
 
   public remove(index:number){
-    this._account.splice(index);
+    return new Promise((resolve, reject) => {
+      if (this._logger) {
+        this._logger.log('Account deleted: ' + this._account[index].title);
+        var deleted = this._account.splice(index,1);
+        if (deleted.length == 0) {
+          reject("No account here");
+          return;
+        }
+      }
+      resolve(deleted[0]);
+    })
+
   }
 }
+
+export const ACCOUNT_SERVICE_PROVIDERS:Array<any> = [AccountService, LoggerService];

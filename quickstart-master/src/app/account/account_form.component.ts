@@ -25,7 +25,7 @@ export class AccountForm{
   @ViewChild('form') form:ElementRef;
 
   public resetForm(){
-    this.form.nativeElement.reset();
+    this.form.nativeElement.value = "";
 }
 }
 
