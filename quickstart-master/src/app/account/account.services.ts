@@ -1,6 +1,7 @@
 import {Injectable, Optional} from '@angular/core';
 import {Account} from "./account.model";
 import {LoggerService} from "../util/logger.service";
+import {reject, resolve} from "q";
 
 @Injectable()
 export class AccountService {
@@ -56,6 +57,17 @@ export class AccountService {
       resolve(deleted[0]);
     })
 
+  }
+
+  getById(accountId: number) {
+    return new Promise((resolve, reject) => {
+      var foundAcc = this._account.find(acc => acc.id == accountId);
+      if (!foundAcc) {
+        reject('No account with this ID.');
+      }else {
+        resolve(foundAcc);
+      }
+    });
   }
 }
 
