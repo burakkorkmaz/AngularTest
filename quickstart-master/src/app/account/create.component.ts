@@ -24,9 +24,7 @@ export class CreateComponent{
     }).catch(err => this.createAccError = err);
   }
 
-  private removeAcc(index:number){
-    this._accountService.remove(index).then(account => console.log(account));
-  }
+
 
   @ViewChild(AccountForm) form:AccountForm;
 }

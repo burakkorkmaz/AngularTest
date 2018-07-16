@@ -16,4 +16,8 @@ export class ListComponent {
     var promise = this._accountService.getAll();
     promise.then(accounts => this._account = accounts);
   }
+
+  private removeAcc(index:number){
+    this._accountService.remove(index).then(account => console.log(account));
+  }
 }

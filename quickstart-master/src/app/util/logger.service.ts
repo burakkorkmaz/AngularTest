@@ -4,5 +4,6 @@ import {Injectable} from "@angular/core";
 export class LoggerService {
   public log(msg:String){
     console.log(msg);
+    window.alert(msg);
   }
 }
