@@ -6,6 +6,7 @@
 
 <div class="row">
   <div class="acc col-md-12" *ngFor="let acc of _account,let i=index"
+       (click)="_showDetails(acc)"
        [ngClass]="{selected:_selected[i], otherCSSClass: otherProperty}">
     <h3>{{acc.title}}</h3>
     <p>{{acc.description}}</p>

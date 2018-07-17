@@ -33,6 +33,11 @@ export class AccountsList implements OnInit{
     this._selected.splice(index);
   }
 
+  @Output() details = new EventEmitter<Account>();
+
+  private _showDetails(account:Account){
+    this.details.emit(account);
+  }
 }
 
 

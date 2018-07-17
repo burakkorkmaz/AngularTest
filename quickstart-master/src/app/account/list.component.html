@@ -1,5 +1,5 @@
 <!-- my custom tag -->
-<accounts_list [accounts] = "_account" (delete)="removeAcc($event)" ></accounts_list>
+<accounts_list [accounts] = "_account" (delete)="removeAcc($event)" (details)="_showAccountDetails($event)" ></accounts_list>
 
 <div class="row" >
   <div class="col-md-3">
