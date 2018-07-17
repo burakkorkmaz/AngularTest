@@ -1,9 +1,11 @@
-<div class="row" *ngIf="_account">
+<h4>Account Details</h4>
+
+<div class="col-4 box" *ngIf="_account">
   <h3>{{_account.title}}</h3>
   <p>{{_account.description}}</p>
   <p>Balance: <strong class="lead">{{_account.balance}}</strong> </p>
 </div>
 
-<div class="row" *ngIf="_error">
+<div class="col-3" *ngIf="_error">
   <p class="alert alert-danger">{{_error}}</p>
 </div>

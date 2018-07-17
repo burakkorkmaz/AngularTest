@@ -5,6 +5,7 @@ import {AccountService} from "./account.services";
 
 @Component({
   templateUrl: "./details.component.html",
+  styleUrls: ["./details.component.css"]
 })
 
 export class DetailsComponent implements OnInit, OnDestroy{
@@ -24,7 +25,7 @@ export class DetailsComponent implements OnInit, OnDestroy{
       this._account = null;
       this._error = "";
       this._accountService.getById(id)
-          .then(account => this._account = account )
+          .then( (account:Account) => this._account = account)
           .catch(err => this._error = err);
     });
   }
