@@ -1,6 +1,54 @@
-.box{
-  background-color: lightblue;
-  padding: 8px 24px;
+.bg-detail{
+  background-color: rgba(200,230,255,0.6);
+  padding: 25px 20px;
+  border-radius: 20px;
   /*margin: 10px 60% 10px 10px;*/
-  border-bottom: 1px solid #b6dfff;
+}
+
+.bg-table{
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 3px;
+}
+
+.details{
+  margin-top: 32px;
+}
+
+.details-label{
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 1%;
+  margin-right: -1%;
+  color: #999;
+}
+
+@media (max-width: 1992px) {
+ .detail-label{
+   text-align: left;
+ }
+}
+
+.detail-data{
+  text-align: left;
+  position: relative;
+  font-size: 20px;
+  padding: 7px 12px 0 12px;
+  margin-bottom: 10px;
+}
+
+.detail-trans:before{
+  content: "Transactions";
+  position: inherit;
+  top: 10px;
+  margin-left: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  color: #999;
+}
+
+.detail-trans .label{
+  margin: 2px;
 }

@@ -30,7 +30,14 @@ export class TransactionService {
     }
   ];
 
-  public getByAccount(accountId:number){}
+  public getByAccount(accountId:number):Promise<Array<Transaction>> {
+    return new Promise((resolve, reject) => {
+      resolve(this._transactions.filter(tran => tran.accountId == accountId))
+
+    });
+  }
+
 }
 
+export const TRANSACTION_SERVICE_PROVIDERS:Array<any> = [TransactionService];
 
