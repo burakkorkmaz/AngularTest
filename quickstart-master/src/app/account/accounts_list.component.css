@@ -1,16 +1,16 @@
 .acc{
-  background-color: lightblue;
+  background-color: rgba(200,230,255,0.8);
   padding: 8px 24px;
   /*margin: 10px 60% 10px 10px;*/
   border-bottom: 1px solid #b6dfff;
-
   cursor: pointer;
+  border-radius: 8px;
 }
 .acc:first-child{
   border-top: 1px solid #b6dfff;
 }
 .acc:hover {
-  background-color: greenyellow;
+  background-color: rgba(200,230,255,0.6);
 }
 
 .selected{
