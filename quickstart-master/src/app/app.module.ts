@@ -11,6 +11,9 @@ import {RouterModule, Routes} from "@angular/router";
 import {ListComponent} from "./account/list.component";
 import {CreateComponent} from "./account/create.component";
 import {DetailsComponent} from "./account/details.component";
+import {TransactionComponent} from "./transaction/transaction.component";
+import {CreateTransactionComponent} from "./transaction/create.component";
+
 
 const appRoutes:Routes = [
 
@@ -22,13 +25,20 @@ const appRoutes:Routes = [
         { path: '', pathMatch:'full', redirectTo:'list' },
         { path: ':id', component: DetailsComponent}]
   },
-
+  {
+    path:'transactions',
+    component:TransactionComponent,
+    children: [
+      {path: 'create', component: CreateTransactionComponent},
+      { path: '', pathMatch:'full', redirectTo:'create' },
+    ]
+  }
 ];
 
 @NgModule({
   imports:      [ RouterModule.forRoot(appRoutes, {enableTracing:true}), BrowserModule],
   declarations: [ AppComponent, HomeComponent, AccountComponent, AccountsList, AccountForm ,
-    ListComponent, CreateComponent , DetailsComponent],
+    ListComponent, CreateComponent , DetailsComponent, TransactionComponent, CreateTransactionComponent],
   bootstrap:    [ AppComponent],
   providers:    [ AccountService]
   // schemas: [CUSTOM_ELEMENTS_SCHEMA]
