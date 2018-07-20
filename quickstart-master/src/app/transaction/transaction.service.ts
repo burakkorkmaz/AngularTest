@@ -7,25 +7,25 @@ export class TransactionService {
     {
       id: "1",
       value: 150,
-      description: "invest money",
-      date: new Date(),
+      description: "Invested money",
+      date: new Date(2018,6,24,14,32,58),
       tags: ["invest"],
       accountId:1,
     },
     {
       id: "2",
       value: -50,
-      description: "Withdraw money",
-      date: new Date(),
+      description: "Withdrawn money",
+      date: new Date(2018,7,1,13,4,43),
       tags: ["withdraw"],
       accountId:1,
     },
     {
       id: "3",
       value: -124.32,
-      description: "paid bills",
-      date: new Date(),
-      tags: ["bill", "electricity"],
+      description: "Paid bills",
+      date: new Date(2018,7,10,16,55,22),
+      tags: ["bill","electricity"],
       accountId:1,
     }
   ];

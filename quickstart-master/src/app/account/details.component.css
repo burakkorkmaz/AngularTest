@@ -1,6 +1,6 @@
 .bg-detail{
   background-color: rgba(200,230,255,0.6);
-  padding: 25px 20px;
+  padding: 20px 20px;
   border-radius: 20px;
   /*margin: 10px 60% 10px 10px;*/
 }
@@ -10,6 +10,7 @@
   border-radius: 3px;
   padding-left: 10px;
   padding-bottom: 10px;
+  font-family: Calibri,sans-serif;
 }
 
 .details{
@@ -20,7 +21,8 @@
   text-align: right;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: Calibri,sans-serif;
   margin-top: 1%;
   margin-right: -1%;
   color: #999;
@@ -38,6 +40,7 @@
   font-size: 20px;
   padding: 7px 12px 0 12px;
   margin-bottom: 10px;
+  font-family: Calibri,sans-serif;
 }
 
 .detail-trans:before{
@@ -47,10 +50,15 @@
   margin-left: 10px;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: Calibri,sans-serif;
   color: #999;
 }
 
 .detail-trans .label{
   margin: 2px;
+}
+
+.badge{
+  margin-right: 2px;
 }

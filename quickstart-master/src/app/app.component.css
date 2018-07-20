@@ -1,0 +1,13 @@
+.container{
+  padding: 22px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background-color: rgba(255,255,255,0.5);
+}
+h1{
+  font-family: Calibri,sans-serif;
+  margin: -25px auto -8px auto;
+  text-align: center;
+
+}

@@ -11,13 +11,13 @@ export class AccountService {
     {
     id: 1,
     title: "Global Bank",
-    description: "Main bank account.",
+    description: "Main bank account",
     balance: 456
     },
     {
       id: 2,
-      title: "Pacific Bank",
-      description: null,
+      title: "AkBank",
+      description: "My private bank account",
       balance: 130
     }];
 
